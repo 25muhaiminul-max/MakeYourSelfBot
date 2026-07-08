@@ -6,5 +6,12 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
+@app.route("/health")
+def health():
+    return {
+        "status": "online",
+        "project": "MakeYourSelfBot"
+    }
+
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=5000)
